@@ -1,16 +1,17 @@
-$('body').on('click',".submitButton",function(){
-    // $(this).parents('form').submit();
-    $form=$(this).parents('form');
-		// console.log($form.attr('action'))
+$(document).ready(function() {
+    $('.submitButton').click(function(e) {
+      e.preventDefault();
+      $form=$(this).parents('form');
+      // console.log($form.attr('action'))
 
-    validateForm($form);
+      validateForm($form);
+    });
 });
 
 
 function validateForm($form, $function){
 	var button = $form.find('button');
 	button.addClass('disabled');
-	unmask();
 	$.ajax({
 		url:$form.attr('action'),
 		method:"POST",

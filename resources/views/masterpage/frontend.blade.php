@@ -14,48 +14,14 @@
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    <style>
-      body {
-        font-family: 'Oswald';
-      }
-      .mt10 {
-        margin-top: 10px;
-      }
+    <!-- jQuery -->
+    <script src=" {{ url('js/ngekeep-script.js') }}"></script>
 
-      a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, td, textarea, th, ul {
-        border-radius: 0 !important;
-        box-shadow: none !important;
-      }
-
-      .btn {
-        color: #FFF;
-      }
-
-      .btn.green {
-        background-color: #32c5d2;
-        border-color: #32c5d2;
-      }
-
-      .btn.green:hover {
-        color: #FFF;
-        background-color: #26a1ab;
-        border-color: #2499a3;
-      }
-
-      .btn.blue {
-        background-color: #3598dc;
-        border-color: #3598dc;
-      }
-
-      .btn.blue:hover {
-        color: #FFF;
-        background-color: #217ebd;
-        border-color: #1f78b5;
-      }
-    </style>
+    <link rel="stylesheet" href="{{ url('css/ngekeep-style.css')}}" />
   </head>
   <body>
       <div class="container">

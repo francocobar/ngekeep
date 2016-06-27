@@ -20,4 +20,4 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::post('registeruser', 'UserController@register');
+Route::post('registeruser', ['as' => 'registeruser', 'uses'=> 'UserController@register']);
