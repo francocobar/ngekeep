@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/','FrontEndController@index');
+Route::get('/dashboard', function () {
     return view('masterpage.dashboard');
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
