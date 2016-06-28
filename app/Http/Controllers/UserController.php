@@ -6,10 +6,21 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Requests\RegisterRequest;
+use App\User;
+use Auth;
 
 class UserController extends Controller
 {
     public function register(RegisterRequest $request) {
-      return "oke";
+      $data = $request->all();
+      $createUser = User::create([
+          'name' => $data['fullName'],
+          'email' => $data['email'],
+          'password' => bcrypt($data['password']),
+      ]);
+
+      if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
+          return "oke";
+      }
     }
 }

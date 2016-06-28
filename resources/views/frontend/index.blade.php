@@ -31,6 +31,9 @@ NgeKEEP!
 
   <label for="password" class="sr-only">Password</label>
   <input type="password" id="password"  name="password" class="form-control mt10" placeholder="Password" >
+  <ul class="messages">
+
+  </ul>
 
   {{ Form::submit('Create an account', array('class' => 'submitButton btn btn-lg btn-block green mt10'))}}
 {!! Form::close() !!}

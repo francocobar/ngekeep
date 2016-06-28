@@ -21,6 +21,7 @@
     <!-- jQuery -->
     <script src=" {{ url('js/ngekeep-script.js') }}"></script>
 
+    <script src="http://malsup.github.io/jquery.blockUI.js"></script>
     <link rel="stylesheet" href="{{ url('css/ngekeep-style.css')}}" />
   </head>
   <body>

@@ -24,10 +24,18 @@ class RegisterRequest extends Request
     public function rules()
     {
         return [
-          'name' => 'required|max:50',
-          'email' => 'required|unique:users',
-          'reEmail' => 'required|unique:users',
+          'fullName' => 'required|max:50',
+          'email' => 'required|unique:users,email|email',
+          'reEmail' => 'required_with:email|same:email',
           'password' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'reEmail.required_with' => 'Re-enter email address!',
+            'reEmail.same' => 'Your email address doesn\'t match',
         ];
     }
 }
