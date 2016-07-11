@@ -20,7 +20,14 @@ class UserController extends Controller
       ]);
 
       if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
-          return "oke";
+          return response()->json(['status'=>'success','url'=>route('timeoff').'#policy']);
+      }
+    }
+
+    public function login(LoginRequest $request) {
+      $data = $request->all();
+      if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
+          return response()->json(['status'=>'success','url'=>route('timeoff').'#policy']);
       }
     }
 }

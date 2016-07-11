@@ -69,4 +69,8 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function index() {
+        return view('masterpage.dashboard');
+    }
 }

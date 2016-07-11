@@ -12,12 +12,11 @@
 */
 
 Route::get('/','FrontEndController@index');
-Route::get('/dashboard', function () {
-    return view('masterpage.dashboard');
-});
+Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'BackEndController@index'])->middleware(['auth']);
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
 Route::post('registeruser', ['as' => 'registeruser', 'uses'=> 'UserController@register']);
+Route::post('login', ['as' => 'login', 'uses'=> 'UserController@login']);
