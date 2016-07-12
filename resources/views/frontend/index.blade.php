@@ -5,10 +5,11 @@
 <h1 class="text-center">
 NgeKEEP!
 </h1>
+
 {!! Form::open(array('url' => route('login'), 'class' => 'form-signin col-md-6')) !!}
   <h2 class="form-signin-heading">Sign in</h2>
   <label for="inputEmail" class="sr-only">Email address</label>
-  {{ Form::email('emaillogin', null, array('id' => 'inputEmail', 'class' => 'form-control mt10', 'placeholder' =>'Email Address', 'required' => '', 'autofocus' => '')) }}
+  {{ Form::email('inputEmail', null, array('id' => 'inputEmail', 'class' => 'form-control mt10', 'placeholder' =>'Email Address', 'required' => '', 'autofocus' => '')) }}
   <label for="inputPassword" class="sr-only">Password</label>
   {{ Form::password('inputPassword', array('id' => 'inputPassword', 'class' => 'form-control mt10', 'placeholder' => 'Password', 'required' => '', 'autofocus' => ''))}}
   <div class="checkbox">
@@ -16,6 +17,10 @@ NgeKEEP!
       <input type="checkbox" value="remember-me"> Remember me
     </label>
   </div>
+
+  <ul class="messages">
+
+  </ul>
   {{ Form::submit('Sign in', array('class' => 'submitButton btn btn-lg btn-block blue mt10'))}}
 {!! Form::close() !!}
 
@@ -32,7 +37,7 @@ NgeKEEP!
   <label for="password" class="sr-only">Password</label>
   {{ Form::password('password', array('id' => 'password', 'class' => 'form-control mt10', 'placeholder' => 'Password', 'required' => '', 'autofocus' => ''))}}
 
-  <ul class="messages">
+  <ul class="messages mt10">
 
   </ul>
 

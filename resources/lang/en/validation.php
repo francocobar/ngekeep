@@ -95,6 +95,30 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'inputEmail' => [
+            'required' => 'The email address field is required.',
+        ],
+        'email' => [
+            'required' => 'The email address field is required.',
+        ],
+        'inputEmail' => [
+            'email' => 'Please enter a valid email address.',
+        ],
+        'email' => [
+            'email' => 'Please enter a valid email address.',
+        ],
+        'inputPassword' => [
+            'required' => 'The password field is required.',
+        ],
+        'password' => [
+            'required' => 'The password field is required.',
+        ],
+        'reEmail' => [
+            'required_with' => 'Please re-enter your email address.',
+        ],
+        'reEmail' => [
+            'same' => 'Your email addresses do not match. Please try again.',
+        ],
     ],
 
     /*

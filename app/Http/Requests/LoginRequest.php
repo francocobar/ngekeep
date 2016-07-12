@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class RegisterRequest extends Request
+class LoginRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,16 @@ class RegisterRequest extends Request
     public function rules()
     {
         return [
-          'fullName' => 'required|max:50',
-          'email' => 'required|unique:users,email|email',
-          'reEmail' => 'required_with:email|same:email',
-          'password' => 'required',
+            'inputEmail' => 'required|email',
+            'inputPassword' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            // 'title.required' => 'A title is required',
+            // 'body.required'  => 'A message is required',
         ];
     }
 }
