@@ -26,6 +26,9 @@
   </head>
   <body>
       <div class="container">
+        <h1 class="text-center">
+        NgeKEEP!
+        </h1>
         @yield('content')
       </div>
   </body>

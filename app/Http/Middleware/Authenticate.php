@@ -21,10 +21,14 @@ class Authenticate
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('login');
+                return redirect()->route('FrontEndHome');
             }
         }
 
+
+        if(!Auth::user()->activated)
+            return redirect()->route('ActivationReminder');
+        
         return $next($request);
     }
 }

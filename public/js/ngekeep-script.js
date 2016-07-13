@@ -23,7 +23,10 @@ function validateForm($form, $function){
   	async: false,
 		data:$form.serializeArray(),
 		success:function(data){
-
+      if(data.status) {
+        if(data.url) window.location.replace(data.url);
+      }
+      $.unblockUI();
 		},
 		error:function(data){
       console.log(data.responseJSON);

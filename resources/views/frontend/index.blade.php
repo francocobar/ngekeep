@@ -2,10 +2,6 @@
 
 @section('content')
 
-<h1 class="text-center">
-NgeKEEP!
-</h1>
-
 {!! Form::open(array('url' => route('login'), 'class' => 'form-signin col-md-6')) !!}
   <h2 class="form-signin-heading">Sign in</h2>
   <label for="inputEmail" class="sr-only">Email address</label>
