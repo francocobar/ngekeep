@@ -68,4 +68,9 @@ class UserController extends Controller
       }
       abort(404);
     }
+
+    public function checkUsername($username)
+    {
+      return response()->json(['status' => false]);
+    }
 }

@@ -17,6 +17,7 @@ Route::post('registeruser', ['as' => 'RegisterUser', 'uses'=> 'UserController@re
 Route::post('signinuser', ['as' => 'SignInUser', 'uses'=> 'UserController@login']);
 Route::get('activationreminder', ['as' => 'ActivationReminder', 'uses' => 'UserController@activationreminder'] );
 Route::get('activate/{encryptedValue}','UserController@activate');
+Route::get('checkusername/{username}','UserController@checkUsername');
 
 
 Route::get('dashboard', ['as' => 'DashboardHome', 'uses' => 'BackEndController@index'])->middleware(['auth']);

@@ -25,8 +25,8 @@ function validateForm($form, $function){
 		success:function(data){
       if(data.status) {
         if(data.url) window.location.replace(data.url);
+        else $.unblockUI();
       }
-      $.unblockUI();
 		},
 		error:function(data){
       console.log(data.responseJSON);

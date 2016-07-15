@@ -15,7 +15,6 @@
     <div class="col-sm-offset-2 col-sm-10">
   		{!! Form::open(array('url' => route('SetUsername'), 'class' => 'form-inline')) !!}
 			<div class="form-group">
-
 			    {{ Form::email('username', null, array('id' => 'username', 'class' => 'form-control', 'placeholder' =>'Username', 'required' => '', 'autofocus' => '')) }}
 		  	</div>
 		  	{{ Form::submit('Save Changes', array('id'=>'setUsername', 'class' => 'btn btn-primary'))}}
@@ -30,11 +29,25 @@
 @section('headOptional')
 <script type="text/javascript">
 	$( document ).ready(function() {
-		$('#username').keypress(function() {
+		$('#username').keydown(function() {
 			if($(this).val().length <=5 ) {
 				$('#message').html('Must be at least 6 characters').addClass('error');
 			}
-			else $('#message').html('').removeClass('error');
+			else {
+				$('#message').html('');
+				$.ajax({
+					method:"GET",
+					url: "/checkusername/" + $.trim($('#username').val()),
+					dataType:'JSON',
+				  	async: false,
+				  	success:function(data){
+				      if(data.status) {
+				        $('#message').html('Username is available').addClass('success').fadeIn( "slow" );
+				      }
+				      else $('#message').html('Username is not available.').addClass('error').fadeIn( "slow" );
+					}
+				});
+			}
 		});
 	});
 </script>
