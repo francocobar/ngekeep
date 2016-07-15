@@ -32,9 +32,15 @@ class UserController extends Controller
     public function login(LoginRequest $request) 
     {
       $data = $request->all();
-      if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
+      if (Auth::attempt(['email' => $data['inputEmail'], 'password' => $data['inputPassword']])) {
           return response()->json(['status'=>true,'url'=>route('DashboardHome')]);
       }
+      $user = User::where('email',$data['inputEmail'])->first();
+
+      if($user)
+        return response()->json(['password'=>['The password that you\'ve entered is incorrect.']], 422);
+
+      return response()->json(['inputEmail'=>['The email address that you\'ve entered doesn\'t match any account.']], 422);
     }
 
     public function activate($encryptedValue) 
@@ -46,7 +52,7 @@ class UserController extends Controller
         if($user != null && !$user->activated && $user->activation_salt == $data['activation_salt']) {
           $user->activated = true;
           $user->save();
-          return "activate berhasil";
+          return view('frontend.activationsuccessful');
         }
       }
 

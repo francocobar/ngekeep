@@ -8,8 +8,8 @@ use App\Http\Requests;
 
 class FrontEndController extends Controller
 {
-    public function index()
+    public function index($type=null)
     {
-        return view('frontend.index');
+        return view('frontend.index',['type'=>$type]);
     }
 }

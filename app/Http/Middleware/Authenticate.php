@@ -28,6 +28,9 @@ class Authenticate
 
         if(!Auth::user()->activated)
             return redirect()->route('ActivationReminder');
+
+        if(!Auth::user()->username)
+            //return redirect()->route('MyUsername');
         
         return $next($request);
     }

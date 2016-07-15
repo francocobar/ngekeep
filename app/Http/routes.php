@@ -12,21 +12,23 @@
 */
 
 Route::get('/',['as' => 'FrontEndHome', 'uses' => 'FrontEndController@index']);
+Route::get('/p/{type}',['as' => 'FrontEndHomeWithType', 'uses' => 'FrontEndController@index']);
+Route::post('registeruser', ['as' => 'RegisterUser', 'uses'=> 'UserController@register']);
+Route::post('signinuser', ['as' => 'SignInUser', 'uses'=> 'UserController@login']);
+Route::get('activationreminder', ['as' => 'ActivationReminder', 'uses' => 'UserController@activationreminder'] );
+Route::get('activate/{encryptedValue}','UserController@activate');
+
 
 Route::get('dashboard', ['as' => 'DashboardHome', 'uses' => 'BackEndController@index'])->middleware(['auth']);
-Route::get('activationreminder', ['as' => 'ActivationReminder', 'uses' => 'UserController@activationreminder'] );
+Route::get('account/myusername', ['as' => 'MyUsername', 'uses' => 'BackEndController@myUsername']);
+Route::post('setusername', ['as' => 'SetUsername', 'uses'=> 'UserController@setUser']);
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
 
-Route::post('registeruser', ['as' => 'registeruser', 'uses'=> 'UserController@register']);
-Route::post('login', ['as' => 'login', 'uses'=> 'UserController@login']);
 
-Route::get('testing/{length}', 'ServicesController@generateSalt');
 
-Route::get('activate/{encryptedValue}','UserController@activate');
-
+Route::get('testing', 'ServicesController@testing');
 Route::get('sendemail', function () {
 
     // $data = array(

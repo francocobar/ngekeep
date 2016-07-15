@@ -55,4 +55,10 @@ class ServicesController extends Controller
 
 	    });
     }
+
+    public function testing()
+    {
+    	return view('frontend.activationsuccessful');
+    	return route('FrontEndHomeWithType', ['type' => 'login']);
+    }
 }
