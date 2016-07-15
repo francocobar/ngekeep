@@ -22,7 +22,7 @@ Route::get('checkusername/{username}','UserController@checkUsername');
 
 Route::get('dashboard', ['as' => 'DashboardHome', 'uses' => 'BackEndController@index'])->middleware(['auth']);
 Route::get('account/myusername', ['as' => 'MyUsername', 'uses' => 'BackEndController@myUsername']);
-Route::post('setusername', ['as' => 'SetUsername', 'uses'=> 'UserController@setUser']);
+Route::post('setusername', ['as' => 'SetUsername', 'uses'=> 'UserController@setUsername']);
 
 Route::auth();
 

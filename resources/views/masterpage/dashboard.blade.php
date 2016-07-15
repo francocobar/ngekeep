@@ -17,7 +17,9 @@
 
     <!-- Custom CSS -->
     <link href="{{url('css/sb-admin.css')}}" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Oswald&subset=cyrillic">
+    <link rel="stylesheet" href="{{ url('css/ngekeep-style.css')}}" />
     <!-- Morris Charts CSS -->
     <!-- <link href="css/plugins/morris.css" rel="stylesheet"> -->
 
@@ -37,7 +39,8 @@
 
     <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
+    
+    <script src=" {{ url('js/ngekeep-script.js') }}"></script>
     @yield('headOptional')
 
 </head>

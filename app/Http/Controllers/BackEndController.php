@@ -17,6 +17,6 @@ class BackEndController extends Controller
     	if(!Auth::user()->username) {
     		return view('dashboard.setusername',['title'=>'Account', 'title2' =>'Set My Username']);
     	}
-    	return "ada";
+    	return view('dashboard.setusername',['title'=>'Account', 'title2' =>'Set My Username']);
     }
 }

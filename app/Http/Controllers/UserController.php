@@ -71,6 +71,23 @@ class UserController extends Controller
 
     public function checkUsername($username)
     {
-      return response()->json(['status' => false]);
+      $user = User::where('username', $username)->first();
+      if($user)
+        return response()->json(['status' => false, 'message'=> 'Username is not available.']);
+
+
+      return response()->json(['status' => true]);
+    }
+
+    public function setUsername(Request $request) {
+      $user = User::where('username', $request->input('username'))->first();
+      if($user)
+        return response()->json(['status' => false, 'message'=> 'Username is not available.']);
+      $user = Auth::user();
+      $user->username = $request->input('username');
+      if($user->save()) {
+        return response()->json(['status' => true, 'message'=> 'Username saved.', 'needreload' => true]);
+      }
+      return response()->json(['status' => false, 'message'=> 'Username failed to save.']);
     }
 }

@@ -28,8 +28,11 @@
 
 @section('headOptional')
 <script type="text/javascript">
-	$( document ).ready(function() {
-		$('#username').keydown(function() {
+	$(document).ready(function() {
+		$('#username').keyup(function() {
+			$('#username').trigger('change');
+			console.log($.trim($('#username').val()));
+			$('#message').removeClass('error').removeClass('success');
 			if($(this).val().length <=5 ) {
 				$('#message').html('Must be at least 6 characters').addClass('error');
 			}
@@ -42,12 +45,35 @@
 				  	async: false,
 				  	success:function(data){
 				      if(data.status) {
-				        $('#message').html('Username is available').addClass('success').fadeIn( "slow" );
+				        $('#message').html('Username is available.').addClass('success').fadeIn('slow');
 				      }
-				      else $('#message').html('Username is not available.').addClass('error').fadeIn( "slow" );
+				      else $('#message').html(data.message).addClass('error').fadeIn('slow');
 					}
 				});
 			}
+		});
+
+		$('#setUsername').click(function(e) {
+			e.preventDefault();
+			$('#message').removeClass('error').removeClass('success');
+			$form=$(this).parents('form');
+			$.ajax({
+				method:"POST",
+				dataType:'JSON',
+  				async: false,
+				url:$form.attr('action'),
+				data:$form.serializeArray(),
+				success:function(data) {
+					if(data.status) {
+						$('#username').prop('disabled', true);
+						$('#message').html(data.message).addClass('success').fadeIn('slow');
+						if(data.needreload) setTimeout(location.reload(), 3000);;
+					}
+					else {
+						$('#message').html(data.message).addClass('error').fadeIn('slow');
+					}
+				},
+			});
 		});
 	});
 </script>
