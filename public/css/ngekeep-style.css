@@ -46,3 +46,8 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
 .success#message {
   color: green;
 }
+
+.form-help-text {
+  font-size: 80%;
+  color: green;
+}

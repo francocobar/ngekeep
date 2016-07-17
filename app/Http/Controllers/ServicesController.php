@@ -9,6 +9,8 @@ use Hash;
 use Crypt;
 use Mail;
 use Illuminate\Contracts\Encryption\DecryptException;
+use Carbon\Carbon;
+
 class ServicesController extends Controller
 {
   
@@ -60,5 +62,12 @@ class ServicesController extends Controller
     {
     	return view('frontend.activationsuccessful');
     	return route('FrontEndHomeWithType', ['type' => 'login']);
+    }
+
+    public static function parseDate($date,$format=0)
+    {
+      $temp = Carbon::parse($date);
+      if($format==0) return $temp->format('D, d F Y'); // Wednesday, 03 August 1975
+      else if($format==1) return $temp->format('Y-m-d');
     }
 }

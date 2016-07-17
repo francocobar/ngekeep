@@ -2,27 +2,35 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-12">
-        <div class="alert alert-info alert-dismissable">
-            <i class="fa fa-info-circle"></i>  <strong>Specify username!</strong> You can only choose a username one and can not be changed.<br/>
-            Note: You can use NgeKEEP feature after choosing a username. Username is the way people get you.
-        </div>
-    </div>
+	<div class="col-lg-12">
+	    <div class="alert alert-info alert-dismissable">
+	        <i class="fa fa-info-circle"></i>  <strong>Specify username!</strong> You can only choose a username one and can not be changed.<br/>
+	        Note: You can use NgeKEEP feature after choosing a username. Username is the way people get you.
+	    </div>
+   	</div>
 </div>
 
-
 <div class="row">
-    <div class="col-sm-offset-2 col-sm-10">
-  		{!! Form::open(array('url' => route('SetUsername'), 'class' => 'form-inline')) !!}
-			<div class="form-group">
-			    {{ Form::email('username', null, array('id' => 'username', 'class' => 'form-control', 'placeholder' =>'Username', 'required' => '', 'autofocus' => '')) }}
-		  	</div>
-		  	{{ Form::submit('Save Changes', array('id'=>'setUsername', 'class' => 'btn btn-primary'))}}
-		  	<div class="form-group" style="display:block; margin-top: 5px;">
-			    <label for="message" id="message"></label>
-		  	</div>
-		{!! Form::close() !!}
-    </div>
+	<div class="col-lg-12">
+	    <div class="panel panel-default">
+	        <div class="panel-heading">
+	            <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Set My Username</h3>
+	        </div>
+	        <div class="panel-body">
+	        	<div class="col-sm-offset-2 col-sm-10">
+			  		{!! Form::open(array('url' => route('SetUsername'), 'class' => 'form-inline')) !!}
+						<div class="form-group">
+						    {{ Form::email('username', null, array('id' => 'username', 'class' => 'form-control', 'placeholder' =>'Username', 'required' => '', 'autofocus' => '')) }}
+					  	</div>
+					  	{{ Form::submit('Save Changes', array('id'=>'setUsername', 'class' => 'btn blue'))}}
+					  	<div class="form-group" style="display:block; margin-top: 5px;">
+						    <label for="message" id="message"></label>
+					  	</div>
+					{!! Form::close() !!}
+			    </div>
+			</div>
+		</div>
+	</div>
 </div>
 @endsection
 

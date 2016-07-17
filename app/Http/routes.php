@@ -21,9 +21,17 @@ Route::get('checkusername/{username}','UserController@checkUsername');
 
 
 Route::get('dashboard', ['as' => 'DashboardHome', 'uses' => 'BackEndController@index'])->middleware(['auth']);
+
 Route::get('account/myusername', ['as' => 'MyUsername', 'uses' => 'BackEndController@myUsername']);
 Route::post('setusername', ['as' => 'SetUsername', 'uses'=> 'UserController@setUsername']);
 
+
+Route::get('tasks', ['as' => 'TasksIndex', 'uses' => 'TasksController@index']);
+Route::get('tasks/add', ['as' => 'AddTask', 'uses' => 'TasksController@addTaskView']);
+Route::post('tasks/add', ['as' => 'AddTaskSubmit', 'uses' => 'TasksController@addTaskSubmit']);
+Route::get('tasks/mytask', ['as' => 'MyTask', 'uses' => 'TasksController@myTask']);
+Route::get('tasks/myrequest', ['as' => 'MyRequest', 'uses' => 'TasksController@myRequest']);
+Route::get('tasks/{action}/{encryptedValue}', ['as' => 'TaskAction', 'uses' => 'TasksController@taskAction']);
 Route::auth();
 
 

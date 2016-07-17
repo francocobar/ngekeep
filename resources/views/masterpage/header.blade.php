@@ -11,7 +11,7 @@
         <a class="navbar-brand" href="index.html">NgeKEEP</a>
     </div>
     <!-- Top Menu Items -->
-    <ul class="nav navbar-right top-nav">
+   <!--  <ul class="nav navbar-right top-nav">
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->name}}<b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -30,17 +30,41 @@
                 </li>
             </ul>
         </li>
-    </ul>
+    </ul> -->
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
-            <li class="active">
-                <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+            <li class="{{\Route::currentRouteName() == 'DashboardHome' ? 'active' : ''}}">
+                <a href="{{route('DashboardHome')}}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
-            <li>
-                <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+
+            <li class="{{\Route::currentRouteName() == 'AddTask' || \Route::currentRouteName() == 'MyTask' ? 'active' : ''}}">
+                <a href="javascript:;" data-toggle="collapse" data-target="#task"><i class="fa fa-fw fa-tasks"></i> Tasks <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="task">
+                    <li>
+                        <a href="{{ route('AddTask') }}">Add Task</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('MyTask') }}">My Task</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('MyRequest') }}">My Request</a>
+                    </li>
+                </ul>
             </li>
-            <li>
+
+            <li class="{{\Route::currentRouteName() == 'MyUsername' ? 'active' : ''}}">
+                <a href="javascript:;" data-toggle="collapse" data-target="#task"><i class="fa fa-fw fa-tasks"></i> Tasks <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="task">
+                    <li>
+                        <a href="{{ route('MyUsername') }}">My Username</a>
+                    </li>
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </li>
+          <!--   <li>
                 <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
             </li>
             <li>
@@ -51,8 +75,8 @@
             </li>
             <li>
                 <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
                     <li>
@@ -62,13 +86,7 @@
                         <a href="#">Dropdown Item</a>
                     </li>
                 </ul>
-            </li>
-            <li>
-                <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-            </li>
-            <li>
-                <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-            </li>
+            </li> -->
         </ul>
     </div>
     <!-- /.navbar-collapse -->

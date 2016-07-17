@@ -14,8 +14,6 @@ function validateForm($form, $function){
     message: 'processing...',
     overlayCSS: { backgroundColor: '#00f' }
   });
-	var button = $form.find('button');
-	button.addClass('disabled');
 	$.ajax({
 		url:$form.attr('action'),
 		method:"POST",
